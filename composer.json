@@ -69,7 +69,7 @@
     "test-parallel-ci": "paratest -p16 --exclude-group dingo"
   },
   "extra": {
-    "laravel": {
+    "framework": {
       "providers": [
         "Knuckles\\Scribe\\ScribeServiceProvider"
       ]
