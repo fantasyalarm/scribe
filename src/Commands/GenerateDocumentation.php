@@ -173,7 +173,7 @@ class GenerateDocumentation extends Command
 
     protected function upgradeConfigFileIfNeeded(): void
     {
-        $upgrader = Upgrader::ofConfigFile('config/scribe.php', __DIR__ . '/../../config/scribe.php')
+        $upgrader = Upgrader::ofConfigFile('config/framework/scribe.php', __DIR__ . '/../../config/scribe.php')
             ->dontTouch(
                 'routes','example_languages', 'database_connections_to_transact', 'strategies' ,'laravel.middleware',
                 'postman.overrides', 'openapi.overrides'
