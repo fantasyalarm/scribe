@@ -1,5 +1,5 @@
 {
-    "name": "knuckleswtf/scribe",
+    "name": "fantasyalarm/scribe",
     "license": "MIT",
     "description": "Generate API documentation for humans from your Laravel codebase.✍",
     "keywords": [
@@ -68,7 +68,7 @@
         "test-parallel-ci": "paratest -p16 --exclude-group dingo"
     },
     "extra": {
-        "laravel": {
+        "framework": {
             "providers": [
                 "Knuckles\\Scribe\\ScribeServiceProvider"
             ]
