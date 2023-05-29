@@ -160,7 +160,7 @@ class GenerateDocumentation extends Command
                 return;
             }
 
-            $upgrader = Upgrader::ofConfigFile("config/{$this->configName}.php", __DIR__ . '/../../config/scribe.php')
+            $upgrader = Upgrader::ofConfigFile("config/framework/{$this->configName}.php", __DIR__ . '/../../config/scribe.php')
                 ->dontTouch(
                     'routes', 'example_languages', 'database_connections_to_transact', 'strategies', 'laravel.middleware',
                     'postman.overrides', 'openapi.overrides', 'groups', 'examples.models_source'
