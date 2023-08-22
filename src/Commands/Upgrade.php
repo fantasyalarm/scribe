@@ -25,7 +25,7 @@ class Upgrade extends Command
 
         $this->configName = $this->option('config');
         if (!($oldConfig = config($this->configName))) {
-            $this->error("The specified config (config/{$this->configName}.php) doesn't exist.");
+            $this->error("The specified config (config/framework/{$this->configName}.php) doesn't exist.");
             return;
         }
 
@@ -40,7 +40,7 @@ class Upgrade extends Command
         if ($isMajorUpgrade) $this->info("Welcome to the Scribe v3 to v4 upgrader.");
         $this->line("Checking for config file changes...");
 
-        $upgrader = Upgrader::ofConfigFile("config/$this->configName.php", __DIR__ . '/../../config/scribe.php')
+        $upgrader = Upgrader::ofConfigFile("config/framework/$this->configName.php", __DIR__ . '/../../config/scribe.php')
             ->dontTouch('routes', 'laravel.middleware', 'postman.overrides', 'openapi.overrides',
                 'example_languages', 'database_connections_to_transact', 'strategies', 'examples.models_source')
             ->move('default_group', 'groups.default')
@@ -61,7 +61,7 @@ class Upgrade extends Command
 
             if ($this->applyChanges) {
                 $upgrader->upgrade();
-                $this->info("✔ Upgraded your config file. Your old config is backed up at config/$this->configName.php.bak.");
+                $this->info("✔ Upgraded your config file. Your old config is backed up at config/framework/$this->configName.php.bak.");
             }
         }
         $this->newLine();
@@ -146,7 +146,7 @@ class Upgrade extends Command
 
         $output = VarExporter::export($newOrder);
         if ($this->applyChanges) {
-            $configFile = "config/{$this->configName}.php";
+            $configFile = "config/framework/{$this->configName}.php";
             $output = str_replace("\n", "\n        ", $output);
             $newContents = str_replace(
                 "'order' => [],",
